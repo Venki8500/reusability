@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            function Cine(){
+
+                var [d,setD]=React.useState([{
+                    type:"A",
+                    A:[{
+                        seatno:1,
+                        price:300,
+                        status:false,
+                        row:'first'
+                    },
+                    {
+                        seatno:2,
+                        price:300,
+                        status:false,
+                        row:'first'
+                    },
+                    {
+                        seatno:3,
+                        price:300,
+                        status:false,
+                        row:'first'
+                    },
+                    {
+                        seatno:4,
+                        price:300,
+                        status:false,
+                        row:'first'
+                    },
+                    {
+                        seatno:5,
+                        price:300,
+                        status:false,
+                        row:'first'
+                    }
+                ]
+
+                },
+                {
+                    type:"B",
+                    A:[{
+                        seatno:1,
+                        price:200,
+                        status:false,
+                        row:'second'
+                    },
+                    {
+                        seatno:2,
+                        price:200,
+                        status:false,
+                        row:'second'
+                    },
+                    {
+                        seatno:3,
+                        price:200,
+                        status:false,
+                        row:'second'
+                    },
+                    {
+                        seatno:4,
+                        price:200,
+                        status:false,
+                        row:'second'
+                    },
+                    {
+                        seatno:5,
+                        price:200,
+                        status:false,
+                        row:'second'
+                    }
+
+                ]
+                },
+                {
+                    type:"C",
+                    A:[{
+                        seatno:1,
+                        price:100,
+                        status:false,
+                        row:'third'
+                    },
+                    {
+                        seatno:2,
+                        price:100,
+                        status:false,
+                        row:'third'
+                    },
+                    {
+                        seatno:3,
+                        price:100,
+                        status:false,
+                        row:'third' 
+                    },
+                    {
+                        seatno:4,
+                        price:100,
+                        status:false,
+                        row:'third'
+                    },
+                    {
+                        seatno:5,
+                        price:100,
+                        status:false,
+                        row:'third'
+                    }
+
+                ]
+                }
+
+            ])
+
+            function fb(w,i,id){
+
+
+                var j=([...d])
+                j[i].A[id].status=!j[i].A[id].status;
+                setD([...j])
+
+
+
+               
+                // if(setD.status==false){
+                //     setD.status=true;
+                // }
+                // else{
+                //     setD.status=false;
+                // }
+
+                // console.log(setD.status)
+               
+                // console.log(w.status)
+                // console.log(q)
+            }
+
+            return(
+                <div>
+                    <table border="0" cellspacing="5px" cellpadding="15px">
+                    <tbody>
+                               {
+                                d.map(function(a,i){
+                                    return <tr>
+                                        <tr>{a.type}</tr>
+
+                                        
+                                        <td>
+                                            {a.A.map(function(x,id){
+                                                return <td style={x.status?{backgroundColor:"green"}:{}} onClick={()=>{fb(x,i,id)}} >{x.seatno}</td>
+                                            })}
+                                            </td>
+                                        </tr>
+                                })
+                               
+                               }
+                                </tbody>
+                        </table>
+                        <h1 id="d1"></h1>
+                    </div>
+            )
+
+       
+
+            }
+
+            ReactDOM.render(<Cine></Cine>,document.getElementById('root'))
+
+        </script>
+    </body>
+</html>
